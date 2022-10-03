@@ -51,3 +51,5 @@ https://tip.golang.org/ref/spec#Interface_types
 I couldn't get the type union to work, asking in https://gophers.slack.com/archives/C88U9BFDZ/p1664806111455639
 
 https://go.dev/play/p/zj4V7vx3nfe
+
+https://go.dev/play/p/4Sh-3r4lynZ
