@@ -24,10 +24,6 @@ Right now I have the common functionality between those two types in a `common` 
 - make a `common` struct, put it as a member of each containing struct, and accept funcopts for the common struct in the containing structs' constructors. Drawback: can only use variadic args of one type in a function, so using it for common struct funcopts means you can't accept other funcopts specific for the containing type (this is what value2 is doing)
 - Make an interface that has the shared method and use that in the funcopt. Drawback: type can't be inferred (TODO: test with go1.19) (v01_shared_interface) https://gophers.slack.com/archives/C88U9BFDZ/p1647571317583019
 
-## TODO
-
-Try using a "interface as a set of types" approach with methods?
-
 ## Experiments
 
 ## v01_shared_interface
@@ -54,4 +50,20 @@ https://go.dev/play/p/zj4V7vx3nfe
 
 https://go.dev/play/p/4Sh-3r4lynZ
 
-https://go.dev/play/p/HgKuj_g6nRd - this is THE ONE
+https://go.dev/play/p/HgKuj_g6nRd - this is THE ONE that makes it work
+
+## ./v03_member_type_set/
+
+I thought this would work, but it doesn't. I want to do something like:
+
+```go
+func[T AorB]() func(*T) {
+    ...
+}
+```
+
+but I can't switch the type on the return type, only on parameter types...
+
+I tried to add a pointer to the parameter type when creating it, but then I can't pass it to a constructor because I don't have an instance of the type to be constructed yet...
+
+Anyway, I'm going to give up on this for now and just use `ScalarDefault` and `SliceDefault`
