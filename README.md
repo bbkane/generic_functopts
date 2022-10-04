@@ -53,3 +53,5 @@ I couldn't get the type union to work, asking in https://gophers.slack.com/archi
 https://go.dev/play/p/zj4V7vx3nfe
 
 https://go.dev/play/p/4Sh-3r4lynZ
+
+https://go.dev/play/p/HgKuj_g6nRd - this is THE ONE

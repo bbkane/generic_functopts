@@ -43,8 +43,23 @@ type HasShared interface {
 // 	}
 // }
 
+func SetShared[T HasShared](t *T) {
+	switch v := any(t).(type) {
+	case *A:
+		v.Shared = "shared"
+	case *B:
+		v.Shared = "shared"
+	}
+}
+
 // -- main
 
 func main() {
-	fmt.Println("hi")
+	a := &A{Shared: "a'"}
+	b := &B{Shared: "b"}
+
+	SetShared(a)
+	SetShared(b)
+	fmt.Printf("%#v\n", a)
+	fmt.Printf("%#v\n", b)
 }
